@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Technicienlabo</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ technicienLabo.id }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ technicienLabo.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Nomcomplet</th>
+                <td>{{ technicienLabo.nomComplet }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ technicienLabo.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ technicienLabo.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('technicienlabo_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('technicienlabo_edit', { 'id': technicienLabo.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

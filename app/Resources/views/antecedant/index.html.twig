@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Antecedants list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Datedebut</th>
+                <th>Datefin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for antecedant in antecedants %}
+            <tr>
+                <td><a href="{{ path('antecedant_show', { 'id': antecedant.id }) }}">{{ antecedant.id }}</a></td>
+                <td>{{ antecedant.code }}</td>
+                <td>{% if antecedant.dateDebut %}{{ antecedant.dateDebut|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if antecedant.dateFin %}{{ antecedant.dateFin|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('antecedant_show', { 'id': antecedant.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('antecedant_edit', { 'id': antecedant.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('antecedant_new') }}">Create a new antecedant</a>
+        </li>
+    </ul>
+{% endblock %}

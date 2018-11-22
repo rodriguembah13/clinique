@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row mb-2">
+    <div class="col-sm-6">
+        <h1 class="x_title">Rendez-vous list</h1>
+    </div>
+    <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="{{ path('rv_index') }}">Rendez-Vous</a></li>
+            <li class="breadcrumb-item active">List</li>
+        </ol>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-3">
+        <div class="card">
+            <button type="button" class="btn btn-block btn-outline-primary"
+                    onclick="location.href = '{{ path('rv_new') }}'">Creer Rv</button>
+        </div>
+    </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Rendez-Vous list</h3>
+
+                        <div class="card-tools">
+                            <form action="{{ path('medecin_search') }}">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div></form>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover  table-striped" id="example1">
+                            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Patien</th>
+                <th>Medecin</th>
+                <th>Creneaux</th>
+                <th>Daterendezvous</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rv in rvs %}
+            <tr>
+                <td><a href="{{ path('rv_show', { 'id': rv.id }) }}">{{ rv.id }}</a></td>
+                <td>{{ rv.patient.nomComplet }}</td>
+                <td>{{ rv.creneauxMedecin.medecin.nomComplet }}</td>
+                <td><span class="badge badge-primary">{{ rv.creneauxMedecin.heureDebut|date('H:i:s')  }}</span> <span class="badge badge-danger">{{ rv.creneauxMedecin.heureFin|date('H:i:s')  }}</span></td>
+                <td>{% if rv.dateRendezVous %}{{ rv.dateRendezVous|date('Y-m-d') }}{% endif %}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button class="btn btn-primary btn-sm" id="dropdownBasic1"
+                                onclick="location.href = '{{ path('rv_show', { 'id': rv.id }) }}'">voir</button>
+                        <button class="btn btn-info btn-sm" id="dropdown2"
+                                onclick="location.href = '{{ path('rv_edit', { 'id': rv.id }) }}'">Edit</button>
+                        <button class="btn btn-danger btn-sm" id="dropdown3"
+                                onclick="location.href = '{{ path('rv_delete', { 'id': rv.id }) }}'">Delete</button>
+                    </div>
+                </td>
+
+            </tr>
+        {% endfor %}
+        </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div><!-- /.row -->
+    </div></section>
+{% endblock %}

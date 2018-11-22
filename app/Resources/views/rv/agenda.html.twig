@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Agenda</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('rv_index') }}">Rende-Vous</a></li>
+                <li class="breadcrumb-item active">Agenda</li>
+            </ol>
+        </div>{##}
+    </div>
+    <div class="card">
+        <div class="card-body">
+
+
+        <h2>Medecin :{{ agenda.medecin.nomComplet }}</h2>
+        <h4>Date du RendezVous:{% if agenda.jour %}{{ agenda.jour|date('Y-m-d') }}{% endif %}</h4>
+    </div>
+    </div>
+    <table class="table table-condensed">
+        <tbody>
+        <tr>
+            <th>Creneaux rV</th>
+        <tr>
+            <th>Crenneau</th><th>Patient</th>
+        </tr>
+            {% for cmj in agenda.creneauMedecinJours %}
+        <tr>
+            <td><span class="badge badge-primary">{{ cmj.crenneau.heureDebut|date('H:i:s')  }}</span> <span class="badge badge-danger">{{ cmj.crenneau.heureFin|date('H:i:s')  }}</span></td>
+            <td>{{ cmj.rv.patient.nomComplet }}</td>
+            <td><span class="badge badge-primary">{{ cmj.rv.creneauxMedecin.heureDebut|date('H:i:s')  }}</span> <span class="badge badge-danger">{{ cmj.rv.creneauxMedecin.heureFin|date('H:i:s')  }}</span></td>
+
+        </tr>
+        {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('rv_index') }}"><i class="fa fa-arrow-left"></i>rv list</a>
+        <div class="col-md-3">
+            <a class="btn btn-outline-success" href="{{ path('medecin_index') }}"><i class="fa fa-angle-left"></i>medecin
+                list</a>
+
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+<table class="table table-hover  table-striped" id="example1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Matricule</th>
+        <th>Nomcomplet</th>
+        <th>Adresse</th>
+        <th>Telephone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for medecin in medecins %}
+        <tr>
+            <td><a href="{{ path('medecin_show', { 'id': medecin.id }) }}">{{ medecin.id }}</a></td>
+            <td>{{ medecin.matricule }}</td>
+            <td>{{ medecin.nomComplet }}</td>
+            <td>{{ medecin.adresse }}</td>
+            <td>{{ medecin.telephone }}</td>
+            <td class="text-right">
+                <div class="btn-group flex-btn-group-container">
+                    <button class="btn btn-success btn-sm" id="dropdownBasic1"
+                            onclick="location.href = '{{ path('medecin_agenda', { 'idMedecin': medecin.id }) }}'">agenda</button>
+                    <button class="btn btn-primary btn-sm" id="dropdownBasic1"
+                            onclick="location.href = '{{ path('medecin_show', { 'id': medecin.id }) }}'">voir</button>
+                    <button class="btn btn-info btn-sm" id="dropdown2"
+                            onclick="location.href = '{{ path('medecin_edit', { 'id': medecin.id }) }}'">Edit</button>
+                    <button class="btn btn-danger btn-sm" id="dropdown3"
+                            onclick="location.href = '{{ path('medecin_delete', { 'id': medecin.id }) }}'">Delete</button>
+                </div>
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

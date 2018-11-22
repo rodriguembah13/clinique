@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Consultation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ consultation.id }}</td>
+            </tr>
+            <tr>
+                <th>Dateprescription</th>
+                <td>{% if consultation.datePrescription %}{{ consultation.datePrescription|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Daterealisation</th>
+                <td>{% if consultation.dateRealisation %}{{ consultation.dateRealisation|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ consultation.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('consultation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('consultation_edit', { 'id': consultation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

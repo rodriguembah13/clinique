@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Typeconsultations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Designation</th>
+                <th>Montant</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for typeConsultation in typeConsultations %}
+            <tr>
+                <td><a href="{{ path('typeconsultation_show', { 'id': typeConsultation.id }) }}">{{ typeConsultation.id }}</a></td>
+                <td>{{ typeConsultation.designation }}</td>
+                <td>{{ typeConsultation.montant }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('typeconsultation_show', { 'id': typeConsultation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('typeconsultation_edit', { 'id': typeConsultation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typeconsultation_new') }}">Create a new typeConsultation</a>
+        </li>
+    </ul>
+{% endblock %}

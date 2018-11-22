@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        {#{{ encore_entry_link_tags('global') }}#}
+        <link rel="stylesheet" href="{{ asset('/build/global.css') }}">
+        <!-- Custom Theme Style -->
+        <link href="{{ asset('/build/dataTables.bootstrap4.mincss.css') }}" rel="stylesheet">
+        <link href="{{ asset('/build/bootstrap-datetimepickercss.css') }}" rel="stylesheet">
+        <link href="{{ asset('/build/adminlte.css') }}" rel="stylesheet">
+        <link href="{{ asset('/build/font-awesome.css') }}" rel="stylesheet">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head><body>
+{% block body %}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('/build/app.js') }}"></script>
+    <script src="{{ asset('/build/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('/build/bootstrap-datetimepickerjs.js') }}"></script>
+    <script src="{{ asset('/build/dataTables.bootstrap4.minjs.js') }}"></script>
+    <script src="{{ asset('/build/adminltejs.js') }}"></script>
+    {#{{ encore_entry_script_tags('app') }}#}
+{% endblock %}
+</body>
+</html>

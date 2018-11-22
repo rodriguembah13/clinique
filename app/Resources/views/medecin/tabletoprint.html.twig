@@ -1,0 +1,31 @@
+<style>
+    .table {
+        background: #34495E
+    }
+
+</style>
+<div>
+    <h2>{{ titre }}</h2>
+</div>
+<table class="table table-hover  table-striped" id="example1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Matricule</th>
+        <th>Nomcomplet</th>
+        <th>Adresse</th>
+        <th>Telephone</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for medecin in medecins %}
+        <tr>
+            <td><a href="{{ path('medecin_show', { 'id': medecin.id }) }}">{{ medecin.id }}</a></td>
+            <td>{{ medecin.matricule }}</td>
+            <td>{{ medecin.nomComplet }}</td>
+            <td>{{ medecin.adresse }}</td>
+            <td>{{ medecin.telephone }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

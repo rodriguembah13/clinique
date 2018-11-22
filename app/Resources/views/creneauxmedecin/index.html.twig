@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Creneauxmedecins list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codecrenneaux</th>
+                <th>Heuredebut</th>
+                <th>Heurefin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for creneauxMedecin in creneauxMedecins %}
+            <tr>
+                <td><a href="{{ path('creneauxmedecin_show', { 'id': creneauxMedecin.id }) }}">{{ creneauxMedecin.id }}</a></td>
+                <td>{{ creneauxMedecin.codeCrenneaux }}</td>
+                <td>{% if creneauxMedecin.heureDebut %}{{ creneauxMedecin.heureDebut|date('H:i:s') }}{% endif %}</td>
+                <td>{% if creneauxMedecin.heureFin %}{{ creneauxMedecin.heureFin|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('creneauxmedecin_show', { 'id': creneauxMedecin.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('creneauxmedecin_edit', { 'id': creneauxMedecin.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('creneauxmedecin_new') }}">Create a new creneauxMedecin</a>
+        </li>
+    </ul>
+{% endblock %}

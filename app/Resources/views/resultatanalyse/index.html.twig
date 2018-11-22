@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resultatanalyses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descriptionresultat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resultatAnalyse in resultatAnalyses %}
+            <tr>
+                <td><a href="{{ path('resultatanalyse_show', { 'id': resultatAnalyse.id }) }}">{{ resultatAnalyse.id }}</a></td>
+                <td>{{ resultatAnalyse.descriptionResultat }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('resultatanalyse_show', { 'id': resultatAnalyse.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('resultatanalyse_edit', { 'id': resultatAnalyse.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resultatanalyse_new') }}">Create a new resultatAnalyse</a>
+        </li>
+    </ul>
+{% endblock %}

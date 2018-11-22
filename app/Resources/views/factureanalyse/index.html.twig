@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Factureanalyses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factureAnalyse in factureAnalyses %}
+            <tr>
+                <td><a href="{{ path('factureanalyse_show', { 'id': factureAnalyse.id }) }}">{{ factureAnalyse.id }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('factureanalyse_show', { 'id': factureAnalyse.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('factureanalyse_edit', { 'id': factureAnalyse.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('factureanalyse_new') }}">Create a new factureAnalyse</a>
+        </li>
+    </ul>
+{% endblock %}

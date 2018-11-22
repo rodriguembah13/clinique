@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Hospitalisations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codehospitalisation</th>
+                <th>Montanthospitalisation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hospitalisation in hospitalisations %}
+            <tr>
+                <td><a href="{{ path('hospitalisation_show', { 'id': hospitalisation.id }) }}">{{ hospitalisation.id }}</a></td>
+                <td>{{ hospitalisation.codeHospitalisation }}</td>
+                <td>{{ hospitalisation.montantHospitalisation }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('hospitalisation_show', { 'id': hospitalisation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('hospitalisation_edit', { 'id': hospitalisation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('hospitalisation_new') }}">Create a new hospitalisation</a>
+        </li>
+    </ul>
+{% endblock %}

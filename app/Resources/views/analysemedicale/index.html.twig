@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Analysemedicales list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Designation</th>
+                <th>Dateprescription</th>
+                <th>Daterealisation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for analyseMedicale in analyseMedicales %}
+            <tr>
+                <td><a href="{{ path('analysemedicale_show', { 'id': analyseMedicale.id }) }}">{{ analyseMedicale.id }}</a></td>
+                <td>{{ analyseMedicale.code }}</td>
+                <td>{{ analyseMedicale.designation }}</td>
+                <td>{% if analyseMedicale.datePrescription %}{{ analyseMedicale.datePrescription|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if analyseMedicale.dateRealisation %}{{ analyseMedicale.dateRealisation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('analysemedicale_show', { 'id': analyseMedicale.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('analysemedicale_edit', { 'id': analyseMedicale.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('analysemedicale_new') }}">Create a new analyseMedicale</a>
+        </li>
+    </ul>
+{% endblock %}

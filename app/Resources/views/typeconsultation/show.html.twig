@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Typeconsultation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ typeConsultation.id }}</td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td>{{ typeConsultation.designation }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ typeConsultation.montant }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('typeconsultation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('typeconsultation_edit', { 'id': typeConsultation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

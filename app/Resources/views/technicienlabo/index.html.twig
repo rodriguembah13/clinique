@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Technicienlabos list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Nomcomplet</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technicienLabo in technicienLabos %}
+            <tr>
+                <td><a href="{{ path('technicienlabo_show', { 'id': technicienLabo.id }) }}">{{ technicienLabo.id }}</a></td>
+                <td>{{ technicienLabo.matricule }}</td>
+                <td>{{ technicienLabo.nomComplet }}</td>
+                <td>{{ technicienLabo.adresse }}</td>
+                <td>{{ technicienLabo.telephone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('technicienlabo_show', { 'id': technicienLabo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('technicienlabo_edit', { 'id': technicienLabo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('technicienlabo_new') }}">Create a new technicienLabo</a>
+        </li>
+    </ul>
+{% endblock %}

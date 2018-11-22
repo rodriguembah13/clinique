@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Carteabonnees list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codecarte</th>
+                <th>Dateabonnement</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carteAbonnee in carteAbonnees %}
+            <tr>
+                <td><a href="{{ path('carteabonnee_show', { 'id': carteAbonnee.id }) }}">{{ carteAbonnee.id }}</a></td>
+                <td>{{ carteAbonnee.codeCarte }}</td>
+                <td>{% if carteAbonnee.dateAbonnement %}{{ carteAbonnee.dateAbonnement|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('carteabonnee_show', { 'id': carteAbonnee.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('carteabonnee_edit', { 'id': carteAbonnee.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('carteabonnee_new') }}">Create a new carteAbonnee</a>
+        </li>
+    </ul>
+{% endblock %}

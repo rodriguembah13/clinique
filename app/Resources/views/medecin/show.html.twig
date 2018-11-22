@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Medecins Detail</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('medecin_index') }}">Medecin</a></li>
+                <li class="breadcrumb-item active">Detail</li>
+            </ol>
+        </div>
+    </div>
+
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ medecin.id }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ medecin.matricule }}</td>
+            </tr>
+            <tr>
+                <th>Nomcomplet</th>
+                <td>{{ medecin.nomComplet }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ medecin.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ medecin.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('medecin_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
+<div class="col-md-3">
+    <a class="btn btn-outline-success" href="{{ path('medecin_edit', { 'id': medecin.id }) }}"><i class="fa fa-edit"></i>edit</a>
+
+</div>
+
+    </div>
+{% endblock %}

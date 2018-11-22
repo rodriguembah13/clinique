@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Rendez-Vous Detail</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('rv_index') }}">Rende-Vous</a></li>
+                <li class="breadcrumb-item active">Detail</li>
+            </ol>
+        </div>
+    </div>
+    <table class="table table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rv.id }}</td>
+            </tr>
+            <tr>
+                <th>Daterendezvous</th>
+                <td>{% if rv.dateRendezVous %}{{ rv.dateRendezVous|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('rv_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
+        <div class="col-md-3">
+            <a class="btn btn-outline-success" href="{{ path('rv_edit', { 'id': rv.id }) }}"><i class="fa fa-edit"></i>edit</a>
+
+        </div>
+
+    </div>
+{% endblock %}
