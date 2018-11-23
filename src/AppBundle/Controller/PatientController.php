@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Patient;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Patient controller.
@@ -88,7 +89,7 @@ class PatientController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('patient_edit', array('id' => $patient->getId()));
+            return $this->redirectToRoute('patient_show', array('id' => $patient->getId()));
         }
 
         return $this->render('patient/edit.html.twig', array(

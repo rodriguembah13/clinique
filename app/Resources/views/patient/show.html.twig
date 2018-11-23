@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Patient</h1>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Patient Detail</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('patient_index') }}">Patient</a></li>
+                <li class="breadcrumb-item active">Detail</li>
+            </ol>
+        </div>
+    </div>
 
-    <table>
+    <table class="table table-condensed">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -35,7 +45,7 @@
             </tr>
         </tbody>
     </table>
-
+{#
     <ul>
         <li>
             <a href="{{ path('patient_index') }}">Back to the list</a>
@@ -48,5 +58,14 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
+
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('patient_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
+        <div class="col-md-3">
+            <a class="btn btn-outline-success" href="{{ path('patient_edit', { 'id': patient.id }) }}"><i class="fa fa-edit"></i>edit</a>
+
+        </div>
+
+    </div>
 {% endblock %}

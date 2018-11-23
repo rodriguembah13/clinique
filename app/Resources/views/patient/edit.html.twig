@@ -1,21 +1,93 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Patient edit</h1>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Patient edit</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('patient_index') }}">Patient</a></li>
+                <li class="breadcrumb-item active">Create</li>
+            </ol>
+        </div>
+    </div>
+    <form action="{{ path('patient_edit', { 'id': patient.id })  }}" method="post" class="form-horizontal form-label-left">
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+        {# Les erreurs générales du formulaire. #}
+        {{ form_errors(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('patient_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <div class="form-group">
+            {# Génération du label. #}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.nomComplet, "Nom ") }}
+            </div>
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(edit_form.nomComplet) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {# Génération de l'input. #}
+                {{ form_widget(edit_form.nomComplet) }}
+            </div></div>
+
+        {# Idem pour un autre champ. #}
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.telephone, "telephone") }}</div>
+
+            {{ form_errors(edit_form.telephone) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(edit_form.telephone) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.adresse, "adresse") }}</div>
+
+            {{ form_errors(edit_form.adresse) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(edit_form.adresse) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.numDossier, "numDossier") }}</div>
+
+            {{ form_errors(edit_form.adresse) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(edit_form.numDossier) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.sexe, "sexe") }}</div>
+
+            {{ form_errors(edit_form.sexe) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(edit_form.sexe) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(edit_form.dateNaissance, "dateNaissance") }}</div>
+
+            {{ form_errors(edit_form.dateNaissance) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(edit_form.dateNaissance) }}
+
+            </div><span class="add-on"><i class="icon-th"></i></span>
+        </div>
+        <div class="ln_solid"></div>
+        <div class="form-group">
+            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                <button class="btn btn-primary" type="button">Cancel</button>
+                <button class="btn btn-primary" type="reset">Reset</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+        {{ form_rest(edit_form) }}
+
+    </form>
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('patient_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
+    </div>
 {% endblock %}

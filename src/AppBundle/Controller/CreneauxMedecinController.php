@@ -90,7 +90,7 @@ class CreneauxMedecinController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('creneauxmedecin_edit', array('id' => $creneauxMedecin->getId()));
+            return $this->redirectToRoute('creneauxmedecin_show', array('id' => $creneauxMedecin->getId()));
         }
 
         return $this->render('creneauxmedecin/edit.html.twig', array(
