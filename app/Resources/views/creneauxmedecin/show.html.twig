@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Creneauxmedecin</h1>
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 class="x_title">Crenneaux Detail</h1>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="{{ path('creneauxmedecin_index') }}">Creneau Medecin</a></li>
+                <li class="breadcrumb-item active">Detail</li>
+            </ol>
+        </div>
+    </div>
 
-    <table>
+    <table class="table table-condensed">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -24,17 +34,12 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('creneauxmedecin_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('creneauxmedecin_edit', { 'id': creneauxMedecin.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="row m-md-2">
+        <a class="btn btn-dark" href="{{ path('creneauxmedecin_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
+        <div class="col-md-3">
+            <a class="btn btn-outline-success" href="{{ path('creneauxmedecin_edit', { 'id': creneauxMedecin.id }) }}"><i class="fa fa-edit"></i>edit</a>
+
+        </div>
+
+    </div>
 {% endblock %}

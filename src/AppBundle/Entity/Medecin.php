@@ -49,7 +49,6 @@ class Medecin
      */
     private $telephone;
 
-
     /**
      * Get id
      *

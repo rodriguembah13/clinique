@@ -32,13 +32,13 @@ class CreneauxMedecin
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureDebut", type="time", nullable=true)
+     * @ORM\Column(name="heureDebut", type="string", nullable=true)
      */
     private $heureDebut;
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="heureFin", type="time", nullable=true)
+     * @ORM\Column(name="heureFin", type="string", nullable=true)
      */
     private $heureFin;
     /**
@@ -72,7 +72,7 @@ class CreneauxMedecin
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getHeureDebut()
     {
@@ -80,7 +80,7 @@ class CreneauxMedecin
     }
 
     /**
-     * @param \DateTime $heureDebut
+     * @param string $heureDebut
      */
     public function setHeureDebut($heureDebut)
     {
@@ -88,7 +88,7 @@ class CreneauxMedecin
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getHeureFin()
     {
@@ -96,7 +96,7 @@ class CreneauxMedecin
     }
 
     /**
-     * @param \DateTime $heureFin
+     * @param string $heureFin
      */
     public function setHeureFin($heureFin)
     {

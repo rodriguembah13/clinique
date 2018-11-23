@@ -40,7 +40,7 @@ class CreneauxMedecinController extends Controller
     public function newAction(Request $request)
     {
         $creneauxMedecin = new Creneauxmedecin();
-        $creneauxMedecin->setHeureDebut(new \DateTime());
+        //$creneauxMedecin->setHeureDebut(new \DateTime());
        // $creneauxMedecin->setHeureFin()
         $form = $this->createForm('AppBundle\Form\CreneauxMedecinType', $creneauxMedecin);
         $form->handleRequest($request);

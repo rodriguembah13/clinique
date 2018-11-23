@@ -15,7 +15,13 @@ class CreneauxMedecinType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('codeCrenneaux')->add('heureDebut')->add('heureFin')->
+        $builder->add('codeCrenneaux')->add('heureDebut',null,array(
+            'attr' => array(
+                'placeholder' => 'EX 12:00')
+        ))->add('heureFin',null,array(
+            'attr' => array(
+                'placeholder' => 'EX 13:30')
+        ))->
         add('medecin',EntityType::class,array(
             'class'=>Medecin::class,
             'choice_label'=>'nomComplet'
