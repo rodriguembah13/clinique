@@ -1,0 +1,6 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~fullcalendar/dist/fullcalendar.css";
+
+body{
+    background-color: white;
+}

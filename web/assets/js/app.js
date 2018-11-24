@@ -1,6 +1,6 @@
 const $ = require('jquery');
 require('bootstrap');
-require('metisMenu');
+require('fullcalendar');
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
     $('[data-toggle="dropdown-toggle"]').dropdown()
@@ -18,4 +18,3 @@ $(document).ready(function () {
         "autoWidth": false
     });
 });
-
