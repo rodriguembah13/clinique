@@ -48,6 +48,37 @@
                 {{ form_widget(form.adresse) }}
             </div>
         </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(form.compte.email, "Email") }}</div>
+
+            {{ form_errors(form.compte.email) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(form.compte.email) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(form.compte.username, "Login") }}</div>
+
+            {{ form_errors(form.compte.username) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(form.compte.username) }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_label(form.compte.plainPassword, ".") }}</div>
+
+            {{ form_errors(form.compte.plainPassword) }}
+            <div class="control-label col-md-3 col-sm-3 col-xs-12">
+                {{ form_widget(form.compte.plainPassword) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(form.compte) }}
+        </div>
 {#        <div class="form-group">
             <div class="control-label col-md-3 col-sm-3 col-xs-12">
                 {{ form_label(form.telephone, "telephone") }}</div>

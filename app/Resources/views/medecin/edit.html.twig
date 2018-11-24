@@ -12,7 +12,7 @@
             </ol>
         </div>
     </div>
-    <form action="{{ path('medecin_new') }}" method="post" class="form-horizontal form-label-left">
+    <form action="{{ path('medecin_edit', { 'id': medecin.id }) }}" method="post" class="form-horizontal form-label-left">
 
         {# Les erreurs générales du formulaire. #}
         {{ form_errors(edit_form) }}

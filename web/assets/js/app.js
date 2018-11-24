@@ -3,6 +3,7 @@ require('bootstrap');
 require('metisMenu');
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
+    $('[data-toggle="dropdown-toggle"]').dropdown()
     // $("#metismenu").metisMenu();
     $(".form_datetime").datepicker({
         format: "YYYY-MM-DD  HH:mm"

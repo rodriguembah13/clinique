@@ -12,6 +12,7 @@ namespace AppBundle\DataFixtures;
 use AppBundle\Entity\CreneauxMedecin;
 use AppBundle\Entity\Medecin;
 use AppBundle\Entity\Patient;
+use AppBundle\Entity\User;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -42,6 +43,12 @@ class AppFixtures extends Fixture
             $patient->setNumDossier('dossier'.' '.$i);
             $manager->persist($patient);
         }
+        $user = new User();
+        $user->setEmail('admin@gmail.com');
+        $user->setUsername('admin');
+        $user->setPlainPassword('admin');
+        $user->setEnabled(true);
+        $manager->persist($user);
         //load crenneau medecin
 /*        for($i=1;$i<20;$i++){
         $crenneauMedecin=new CreneauxMedecin();

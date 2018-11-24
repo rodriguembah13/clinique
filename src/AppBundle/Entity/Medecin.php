@@ -49,7 +49,7 @@ class Medecin
      */
     private $telephone;
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", cascade={"persist", "remove" })
      */
     private $compte;
     /**

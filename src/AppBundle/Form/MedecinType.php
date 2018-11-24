@@ -13,7 +13,8 @@ class MedecinType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomComplet')->add('adresse')->add('telephone');
+        $builder->add('nomComplet')->add('adresse')->add('telephone')
+            ->add('compte',UserType::class);
     }/**
      * {@inheritdoc}
      */
