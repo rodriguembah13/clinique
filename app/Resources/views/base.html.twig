@@ -66,20 +66,18 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">Clinic</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.0.0-alpha
+                <b>Version</b> 1.0.0
             </div>
         </footer>
 
         {% block javascripts %}
             <script src="{{ asset('/build/app.js') }}"></script>
-            <script src="{{ asset('/build/jquery.dataTables.js') }}"></script>
-            <script src="{{ asset('/build/bootstrap-datetimepickerjs.js') }}"></script>
-            <script src="{{ asset('/build/dataTables.bootstrap4.minjs.js') }}"></script>
+            <script src="{{ asset('/build/moment.js') }}"></script>
             <script src="{{ asset('/build/adminltejs.js') }}"></script>
-           {#{{ encore_entry_script_tags('app') }}#}
+            <script src="{{ asset('/assets/js/main.js') }}"></script>
         {% endblock %}
     </div> </body>
 </html>

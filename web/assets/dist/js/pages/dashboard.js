@@ -8,7 +8,8 @@
 $(function () {
 
   'use strict'
-
+alert("message");
+  console.log("rest");
   // Make the dashboard widgets sortable Using jquery UI
   $('.connectedSortable').sortable({
     placeholder         : 'sort-highlight',

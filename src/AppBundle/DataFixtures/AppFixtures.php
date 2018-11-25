@@ -9,6 +9,7 @@
 namespace AppBundle\DataFixtures;
 
 
+use AppBundle\Entity\CalendarEvent;
 use AppBundle\Entity\CreneauxMedecin;
 use AppBundle\Entity\Medecin;
 use AppBundle\Entity\Patient;
@@ -49,6 +50,8 @@ class AppFixtures extends Fixture
         $user->setPlainPassword('admin');
         $user->setEnabled(true);
         $manager->persist($user);
+        $events=new CalendarEvent();
+
         //load crenneau medecin
 /*        for($i=1;$i<20;$i++){
         $crenneauMedecin=new CreneauxMedecin();
