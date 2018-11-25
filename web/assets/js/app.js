@@ -90,7 +90,7 @@ $(document).ready(function () {
     $('#appbundle_rv_creneauxMedecin').replaceWith($input);
 });*/
 
-$(document).on('change','#appbundle_rv_medecin,#appbundle_rv_creneauxMedecin',function () {
+$(document).on('change','#appbundle_rv_medecin',function () {
     let $field=$(this);
     let $form=$field.closest('form');
     let data={};
