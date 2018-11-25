@@ -7,7 +7,8 @@ use AppBundle\Domain\CreneauMedecinJour;
 use AppBundle\Entity\Rv;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Rv controller.
@@ -137,6 +138,7 @@ class RvController extends Controller
         foreach ($creneauxMedecins as $creneau){
             $rvs=$em->getRepository('AppBundle:Rv')->findBy(array('creneauxMedecin'=>$creneau));
             foreach ($rvs as $rv){
+
                 $crenneauMedecinJour = new CreneauMedecinJour($creneau,$rv);
                // $crenneauMedecinJours=[$crenneauMedecinJour];
                 array_push($crenneauMedecinJours,$crenneauMedecinJour);

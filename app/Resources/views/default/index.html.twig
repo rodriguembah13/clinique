@@ -3,5 +3,158 @@
 {% block body %}
 
     {% include '@FullCalendar/Calendar/calendar.html.twig' %}
+    <!-- calendar modal -->
+    <div id="CalenderModalNew" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">New Calendar Entry</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="testmodal" style="padding: 5px 20px;">
+                        {#<form action="{{ path('rvindex_new') }}" method="post" class="form-horizontal form-label-left">#}
+
+                            {# Les erreurs générales du formulaire. #}
+                            {#{{ form_errors(form) }}#}
+
+                            {#<div class="form-group">#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_label(form.dateRendezVous, "date RendezVous") }}#}
+                                {#</div>#}
+                                {#{{ form_errors(form.dateRendezVous) }}#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_widget(form.dateRendezVous) }}#}
+                                {#</div></div>#}
+                            {#<div class="form-group">#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_label(form.creneauxMedecin, "codeCrenneaux") }}</div>#}
+
+                                {#{{ form_errors(form.creneauxMedecin) }}#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_widget(form.creneauxMedecin) }}#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#<div class="form-group">#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_label(form.patient, "patient") }}</div>#}
+
+                                {#{{ form_errors(form.patient) }}#}
+                                {#<div class="control-label col-md-3 col-sm-3 col-xs-12">#}
+                                    {#{{ form_widget(form.patient) }}#}
+                                {#</div>#}
+                            {#</div>#}
+
+                            {#<div class="ln_solid"></div>#}
+                            {#<div class="form-group">#}
+                                {#<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">#}
+                                    {#<button class="btn btn-primary" type="button">Cancel</button>#}
+                                    {#<button type="submit" class="btn btn-success">Submit</button>#}
+                                {#</div>#}
+                            {#</div>#}
+                            {#{{ form_rest(form) }}#}
+
+                        {#</form>#}
+                        {#<form id="antoform" class="form-horizontal calender" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" style="height:55px;" id="descr" name="descr"></textarea>
+                                </div>
+                            </div>
+                        </form>#}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default antoclose" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary antosubmit">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="CalenderModalShow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+            </div>
+            <div class="modal-body">
+
+                <div id="testmodal3" style="padding: 5px 20px;">
+                    <dt id="titre"></dt>
+                    <input id="medecin"/>
+                    <p id="patient"></p>
+                    <p id="creaneau"></p>
+                    <p id="daterv"></p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default antoclose3" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="CalenderModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div id="testmodal2" style="padding: 5px 20px;">
+                        <form id="antoform2" class="form-horizontal calender" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="title2" name="title2">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Description</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" style="height:55px;" id="descr2" name="descr"></textarea>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default antoclose2" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary antosubmit2">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loading" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title text-center">Patientez</h2>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="loader" align="middle" src="{{ asset('/assets/image/loader.gif') }}" />
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="fc_show" data-toggle="modal" data-target="#CalenderModalShow"></div>
+    <div id="fc_create" data-toggle="modal" data-target="#CalenderModalNew"></div>
+    <div id="fc_edit" data-toggle="modal" data-target="#CalenderModalEdit"></div>
 {% endblock %}
