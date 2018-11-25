@@ -29,15 +29,16 @@ class RvType extends AbstractType
             'mapped'=>false,
             'required'=>false,'choice_label'=>'nomComplet',
         ));
-        $builder->get('medecin')->addEventListener(FormEvents::POST_SUBMIT,function(FormEvent $event){
+        $builder->get('medecin')->addEventListener(FormEvents::PRE_SET_DATA,function(FormEvent $event){
+            /* dump($event->getForm());
+             dump($event->getForm()->getData());*/
             $form=$event->getForm();
-            $form->getParent()->add('creneauxMedecin',EntityType::class,array(
-                'class'=>CreneauxMedecin::class,
-                'placeholder'=>'select crenneaux',
-                'mapped'=>false,
-                'required'=>false,
-                'choices'=>$form->getData()->getCrenneaux()
-            ));
+             $form->getParent()->add('creneauxMedecin',EntityType::class,array(
+                 'class'=>CreneauxMedecin::class,
+                 'placeholder'=>'select creneauxMedecin',
+                 'required'=>false,
+                 'choices'=>null? $form->getData()->getCrenneaux():[]
+             ));
         });
     }/**
      * {@inheritdoc}

@@ -32,8 +32,7 @@ class Rv
     private $patient;
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CreneauxMedecin")
-     *
-     * @ORM\JoinColumn(name="creneauxMedecin", referencedColumnName="id", nullable=FALSE)
+     * @Assert\NotBlank
      */
     private $creneauxMedecin;
     /**

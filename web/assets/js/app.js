@@ -23,9 +23,9 @@ $(document).ready(function () {
             $('#fc_show').click();
             $('#titre').val(calEvent.title);
            $('#creaneau').text(calEvent.periode);
-           $('#medecin').val(calEvent.medecin);
-           $('#patient').val(calEvent.patient);
-           $('#daterv').data(calEvent.dateRv);
+           $('#medecin').text(calEvent.medecin);
+           $('#patient').text(calEvent.patient);
+           $('#daterv').text(calEvent.dateRv);
            //$('p').text('Nouveau contenu !');
            // remplace le contenu actuel du paragraphe par "Nouveau contenu !"
 
@@ -81,4 +81,14 @@ $(document).ready(function () {
 
     });
 
+});
+$(document).on('change','#appbundle_rv_medecin,#appbundle_rv_creneauxMedecin',function () {
+    let $field=$(this);
+    let $form=$field.closest('form');
+    let data={};
+    data[$field.attr('name')]=$field.val();
+    $.post($form.attr('action'),data).then(function (data) {
+        let $input=$(data).find('#appbundle_rv_creneauxMedecin');
+        $('#appbundle_rv_creneauxMedecin').replaceWith($input);
+    })
 });

@@ -24,11 +24,13 @@ class LoadDataListener
 	{
 		$this->em = $em;
 	}
-	/**
-	 * @param CalendarEvent $calendarEvent
-	 *
-	 * @return FullCalendarEvent[]
-	 */
+
+    /**
+     * @param CalendarEvent $calendarEvent
+     *
+     * @return FullCalendarEvent[]
+     * @throws \Exception
+     */
 	public function loadData(CalendarEvent $calendarEvent)
 	{
 		// You can retrieve information from the event dispatcher (eg, You may want which day was selected in the calendar):
