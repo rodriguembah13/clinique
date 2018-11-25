@@ -29,7 +29,7 @@ class RvType extends AbstractType
             'mapped'=>false,
             'required'=>false,'choice_label'=>'nomComplet',
         ));
-        $builder->get('medecin')->addEventListener(FormEvents::PRE_SET_DATA,function(FormEvent $event){
+        $builder->get('medecin')->addEventListener(FormEvents::POST_SET_DATA,function(FormEvent $event){
             /* dump($event->getForm());
              dump($event->getForm()->getData());*/
             $form=$event->getForm();

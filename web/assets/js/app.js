@@ -82,6 +82,14 @@ $(document).ready(function () {
     });
 
 });
+/*$(document).on('change','#appbundle_rv_medecin',function () {
+    let $field=$(this);
+    let data={};
+    data[$field.attr('name')]=$field.val();
+    let $input=$(data).find('#appbundle_rv_creneauxMedecin');
+    $('#appbundle_rv_creneauxMedecin').replaceWith($input);
+});*/
+
 $(document).on('change','#appbundle_rv_medecin,#appbundle_rv_creneauxMedecin',function () {
     let $field=$(this);
     let $form=$field.closest('form');
