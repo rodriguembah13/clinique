@@ -13,6 +13,7 @@ use AppBundle\Entity\CalendarEvent;
 use AppBundle\Entity\CreneauxMedecin;
 use AppBundle\Entity\Medecin;
 use AppBundle\Entity\Patient;
+use AppBundle\Entity\Schedule;
 use AppBundle\Entity\User;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -50,7 +51,27 @@ class AppFixtures extends Fixture
         $user->setPlainPassword('admin');
         $user->setEnabled(true);
         $manager->persist($user);
-        $events=new CalendarEvent();
+
+        //events
+        $schedule = new Schedule();
+        $schedule->setTitle('Yoga class');
+        $today = new \DateTime();
+        $endate= new \DateTime("tomorrow");
+        $schedule->setStart($today);
+        $schedule->setEnd($endate);
+        $manager->persist($schedule);
+        $schedule = new Schedule();
+        $schedule->setTitle('German class');
+        $tomorrow = new \DateTime('tomorrow');
+        $schedule->setStart($tomorrow);
+        $schedule->setEnd($tomorrow);
+        $manager->persist($schedule);
+        $schedule = new Schedule();
+        $schedule->setTitle('rendez vous');
+        $tomorrow = new \DateTime('tomorrow');
+        $schedule->setStart($tomorrow);
+        $schedule->setEnd($tomorrow);
+        $manager->persist($schedule);
 
         //load crenneau medecin
 /*        for($i=1;$i<20;$i++){

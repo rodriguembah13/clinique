@@ -13,7 +13,7 @@ $(document).ready(function () {
         },
         navLinks: true, // can click day/week names to navigate views
         businessHours: true, // display business hours
-       timezone: ('Europe/London'),
+        timezone: ('Europe/London'),
         allDaySlot: false,
         defaultView: 'agendaWeek',
         lazyFetching: true,
@@ -30,7 +30,7 @@ $(document).ready(function () {
          }, */
         editable: true,
         eventDurationEditable: true,
-       eventSources: [
+        eventSources: [
             {
                 url: '/full-calendar/load' ,
                 type: 'POST',
