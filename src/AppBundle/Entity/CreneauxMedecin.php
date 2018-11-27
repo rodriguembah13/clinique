@@ -42,7 +42,7 @@ class CreneauxMedecin
      */
     private $heureFin;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Medecin")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Medecin",inversedBy="crenneaux")
      */
     private $medecin;
     /**

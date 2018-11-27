@@ -46,11 +46,11 @@ class LoadDataListener
 		foreach ($rvs as $rv) {
 		    $title='Rdv'.$rv->getCreneauxMedecin()->getMedecin()->getNomComplet();
             $from=date("Y-m-d",$rv->getDateRendezVous()->getTimestamp());
+			$back=$rv->getDateRendezVous()->add(new \DateInterval('P1D'));
             $start=date_create_from_format("Y-m-d H:i:s",$from,null);
+			$started= new \DateTime($from." ".$rv->getCreneauxMedecin()->getHeureDebut());
 
-          $end=date_create_from_format("Y-m-d H:i:s",$from."".$rv->getCreneauxMedecin()->getHeureFin(),null);
-
-			$event=new Event($title, $rv->getDateRendezVous());
+			$event=new Event($title, $started);
 			$event->setCustomField("patient",$rv->getPatient()->getNomComplet());
 			$event->setCustomField("dateRv",$rv->getDateRendezVous()->format("Y-m-d"));
 			$event->setCustomField("medecin",$rv->getCreneauxMedecin()->getMedecin()->getNomComplet());
@@ -58,7 +58,7 @@ class LoadDataListener
 			$event->setAllDay(true);
 			$event->setEditable(true);
 			$event->setOverlap(true);
-			$event->setEndDate(new \DateTime());
+			$event->setEndDate($back);
 			$calendarEvent->addEvent($event);
 		}
 	}

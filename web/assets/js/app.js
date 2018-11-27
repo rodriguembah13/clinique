@@ -22,10 +22,13 @@ $(document).ready(function () {
        eventClick: function(calEvent, jsEvent, view) {
             $('#fc_show').click();
             $('#titre').val(calEvent.title);
-           $('#creaneau').val(calEvent.periode);
+           $('#creaneau').text(calEvent.periode);
            $('#medecin').val(calEvent.medecin);
            $('#patient').val(calEvent.patient);
            $('#daterv').data(calEvent.dateRv);
+           //$('p').text('Nouveau contenu !');
+           // remplace le contenu actuel du paragraphe par "Nouveau contenu !"
+
            // $('#title2').val(calEvent.title);
            // $('#descr2').val(calEvent.patient);
         },
@@ -60,4 +63,22 @@ $(document).ready(function () {
                 }
             }] /**/
     });
+    $("#more_com").click(function(){
+
+        $.ajax({
+            url : 'more_com.php',
+            type : 'GET',
+            dataType : 'json',
+            success : function(code_html, statut){ // success est toujours en place, bien sûr !
+
+            },
+
+            error : function(resultat, statut, erreur){
+
+            }
+
+        });
+
+    });
+
 });

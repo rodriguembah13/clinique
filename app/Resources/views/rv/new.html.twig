@@ -13,10 +13,9 @@
             </ol>
         </div>
     </div>
-
+{#
     <form action="{{ path('rv_new') }}" method="post" class="form-horizontal form-label-left">
 
-        {# Les erreurs générales du formulaire. #}
         {{ form_errors(form) }}
 
         <div class="form-group">
@@ -29,11 +28,11 @@
             </div></div>
         <div class="form-group">
             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                {{ form_label(form.creneauxMedecin, "codeCrenneaux") }}</div>
+                {{ form_label(form.medecin, "medecin") }}</div>
 
-            {{ form_errors(form.creneauxMedecin) }}
+            {{ form_errors(form.medecin) }}
             <div class="control-label col-md-3 col-sm-3 col-xs-12">
-                {{ form_widget(form.creneauxMedecin) }}
+                {{ form_widget(form.medecin) }}
             </div>
         </div>
         <div class="form-group">
@@ -55,7 +54,11 @@
         </div>
         {{ form_rest(form) }}
 
-    </form>
+    </form>#}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Create" />
+    {{ form_end(form) }}
     <div class="row m-md-2">
         <a class="btn btn-dark" href="{{ path('rv_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
     </div>

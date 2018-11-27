@@ -8,6 +8,8 @@ use AppBundle\Entity\Patient;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class RvType extends AbstractType
@@ -21,10 +23,22 @@ class RvType extends AbstractType
         add('patient',EntityType::class,array(
             'class'=>Patient::class,
             'choice_label'=>'nomComplet'
-        ))->add('creneauxMedecin',EntityType::class,array(
-            'class'=>CreneauxMedecin::class,
-            'choice_label'=>'codeCrenneaux'
+        ))->add('medecin',EntityType::class,array(
+            'class'=>Medecin::class,
+            'placeholder'=>'select medecin',
+            'mapped'=>false,
+            'required'=>false,'choice_label'=>'nomComplet',
         ));
+        $builder->get('medecin')->addEventListener(FormEvents::POST_SUBMIT,function(FormEvent $event){
+            $form=$event->getForm();
+            $form->getParent()->add('creneauxMedecin',EntityType::class,array(
+                'class'=>CreneauxMedecin::class,
+                'placeholder'=>'select crenneaux',
+                'mapped'=>false,
+                'required'=>false,
+                'choices'=>$form->getData()->getCrenneaux()
+            ));
+        });
     }/**
      * {@inheritdoc}
      */

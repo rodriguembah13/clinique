@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Rv
  *
@@ -22,7 +22,7 @@ class Rv
     private $id;
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank
      * @ORM\Column(name="dateRendezVous", type="datetime", nullable=true)
      */
     private $dateRendezVous;
@@ -32,6 +32,8 @@ class Rv
     private $patient;
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CreneauxMedecin")
+     *
+     * @ORM\JoinColumn(name="creneauxMedecin", referencedColumnName="id", nullable=FALSE)
      */
     private $creneauxMedecin;
     /**

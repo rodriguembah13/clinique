@@ -53,6 +53,10 @@ class Medecin
      */
     private $compte;
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\CreneauxMedecin", mappedBy="medecin")
+     */
+    private $crenneaux;
+    /**
      * Get id
      *
      * @return int
@@ -172,6 +176,22 @@ class Medecin
     public function setCompte($compte)
     {
         $this->compte = $compte;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCrenneaux()
+    {
+        return $this->crenneaux;
+    }
+
+    /**
+     * @param mixed $crenneaux
+     */
+    public function setCrenneaux($crenneaux)
+    {
+        $this->crenneaux = $crenneaux;
     }
 
 }
