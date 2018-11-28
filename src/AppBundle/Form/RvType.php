@@ -29,15 +29,34 @@ class RvType extends AbstractType
             'mapped'=>false,
             'required'=>false,'choice_label'=>'nomComplet',
         ));
-        $builder->get('medecin')->addEventListener(FormEvents::POST_SET_DATA,function(FormEvent $event){
+        $builder->addEventListener(
+            FormEvents::PRE_SET_DATA,
+            function (FormEvent $event) {
+                $form = $event->getForm();
+
+                // this would be your entity, i.e. SportMeetup
+                $data = $event->getData();
+
+                $crenneaux = $data->getCreneauxMedecin();
+                $positions = null === $crenneaux ? array() : $crenneaux;
+
+                $form->add('creneauxMedecin', EntityType::class, array(
+                    'class' => 'AppBundle:creneauxMedecin',
+                    'placeholder' => '',
+                    'choices' => $positions,
+                ));
+            }
+        );
+        $builder->get('medecin')->addEventListener(FormEvents::POST_SUBMIT,function(FormEvent $event){
             /* dump($event->getForm());
              dump($event->getForm()->getData());*/
             $form=$event->getForm();
+            $positions = null === $form->getData() ? array() : $form->getData()->getCrenneaux();
              $form->getParent()->add('creneauxMedecin',EntityType::class,array(
                  'class'=>CreneauxMedecin::class,
                  'placeholder'=>'select creneauxMedecin',
                  'required'=>false,
-                 'choices'=>null? $form->getData()->getCrenneaux():[]
+                 'choices'=> $positions
              ));
         });
     }/**

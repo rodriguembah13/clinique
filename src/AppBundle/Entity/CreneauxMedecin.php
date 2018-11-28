@@ -119,5 +119,10 @@ class CreneauxMedecin
         $this->medecin = $medecin;
     }
 
+    function __toString()
+    {
+        return $this->codeCrenneaux;
+    }
+
 }
 
