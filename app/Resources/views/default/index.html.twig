@@ -80,23 +80,67 @@
         </div>
     </div>
 <div id="CalenderModalShow" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
 
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title" id="myModalLabel2">Edit Calendar Entry</h4>
+                <button type="button">
+                    <span class="fa fa-edit"></span>
+                </button>
+                <button type="button">
+                    <span class="fa fa-trash"></span>
+                </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-
-                <div id="testmodal3" style="padding: 5px 20px;">
-                    <dt id="titre"></dt>
-                    <input id="medecin"/>
-                    <p id="patient"></p>
-                    <p id="creaneau"></p>
-                    <p id="daterv"></p>
-
+                <div class="container-fluid">
+                    <div class="row bg-blue" style="height: 30px">
+                    <span class="tile" id="titre"></span>test
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="fa fa-calendar"> Date:</span>
+                        </div>
+                        <div class="col-md-8">
+                          <p>
+                             <span id="daterv"></span>
+                          </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="fa fa-dashcube"> Periode:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <p>
+                               <span id="creaneau"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="fa fa-user"> Patient:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <p>
+                               <span id="patient"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <span class="fa fa-user-secret"> Medecin:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <p>
+                               <span id="medecin"></span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default antoclose3" data-dismiss="modal">Close</button>

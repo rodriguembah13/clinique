@@ -13,9 +13,9 @@
         </div>
     </div>
 
-    <form action="{{ path('rv_new') }}" method="post" class="form-horizontal form-label-left">
+ {#   <form action="{{ path('rv_new') }}" method="post" class="form-horizontal form-label-left">
 
-        {# Les erreurs générales du formulaire. #}
+
         {{ form_errors(edit_form) }}
 
         <div class="form-group">
@@ -54,7 +54,11 @@
         </div>
         {{ form_rest(edit_form) }}
 
-    </form>
+    </form>#}
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Create" class="btn btn-success"/>
+    {{ form_end(edit_form) }}
     <div class="row m-md-2">
         <a class="btn btn-dark" href="{{ path('rv_index') }}"><i class="fa fa-arrow-left"></i>Back to the list</a>
     </div>
